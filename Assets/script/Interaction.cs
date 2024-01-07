@@ -7,7 +7,7 @@ namespace FiFolker{
     public interface Interaction
     {
         public void draw();
-        public void interact();
+        public void interact(CharacterBehavior player);
         
     }
 

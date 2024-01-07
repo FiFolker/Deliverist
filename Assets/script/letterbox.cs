@@ -8,12 +8,19 @@ namespace FiFolker
     {
         public void draw()
         {
-            throw new System.NotImplementedException();
+            Debug.Log("Press 'E' to interact with letterbox");
         }
 
-        public void interact()
+        public void interact(CharacterBehavior player)
         {
-            throw new System.NotImplementedException();
+            foreach(PackageData package in player.inventory.content){
+                if(package.type == PackageType.Small){
+                    player.inventory.RemoveItem(package);
+                    player.inventory.AddMoney(15);
+                    break;
+                }
+            }
+            
         }
 
         // Start is called before the first frame update
