@@ -1,0 +1,9 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement name="Top" style="flex-grow: 1; flex-direction: column; align-items: stretch; justify-content: space-between;">
+        <ui:Label tabindex="-1" text="Money : " parse-escape-sequences="true" display-tooltip-when-elided="true" name="Money" style="height: 23px; width: 170px; color: rgb(255, 255, 255); -unity-font-style: bold; -unity-font: initial;" />
+    </ui:VisualElement>
+    <ui:VisualElement name="Bottom" style="flex-grow: 1; justify-content: flex-end; align-items: stretch;">
+        <ui:Label tabindex="-1" text="Rewards (ex :+ Letter, + 15€ ...)" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Rewards" style="height: 25px; width: 859px; align-items: stretch; justify-content: flex-start; flex-direction: column; color: rgb(0, 0, 0); -unity-font-style: bold;" />
+        <ui:Label tabindex="-1" text="Info (ex : press &apos;e&apos;, ...)" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Info" style="height: 25px; width: 859px; align-items: stretch; justify-content: flex-start; flex-direction: column; color: rgb(0, 0, 0); -unity-font-style: bold;" />
+    </ui:VisualElement>
+</ui:UXML>

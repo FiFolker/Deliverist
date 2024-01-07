@@ -10,9 +10,9 @@ namespace FiFolker
 
         [Header("Items")]
         public List<PackageData> packageStorage;
-        public void draw()
+        public void draw(CharacterBehavior player)
         {
-            Debug.Log("Press 'E' to interact with post office");
+            player.hud.DisplayInteraction("Press '"+player.interactionInput.ToString()+"' to interact with the post office");
         }
 
         public void interact(CharacterBehavior player)
@@ -20,22 +20,12 @@ namespace FiFolker
             if(packageStorage.Count > 0){
                 PackageData package = packageStorage[0];
                 if(player.inventory.AddItem(package)) packageStorage.RemoveAt(0);
-                else Debug.Log("Package not gived");
+                else player.hud.DisplayInfo("Package not gived ...");
                 
             }else{
-                Debug.Log("Il n'y a plus de colis dans cette poste ...");
+                player.hud.DisplayInfo("Post office out of stock");
             }
 
-        }
-
-        void Start()
-        {
-            Debug.Log("Post office script loaded");
-        }
-
-        void Update()
-        {
-        
         }
     
     }

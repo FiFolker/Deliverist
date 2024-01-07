@@ -9,6 +9,7 @@ namespace FiFolker{
 	public class CharacterBehavior : MonoBehaviour
 	{
 		public GameObject playerView;
+		public HUD hud;
 		public KeyCode forwardInput,backwardInput,leftwardInput,rightwardInput, sprintInput, interactionInput;
 		[Header("Characteristics")]
 		public float walkSpeed;
@@ -45,7 +46,7 @@ namespace FiFolker{
 			}
 
 			if(interativectObject != null){
-				interativectObject.draw();
+				interativectObject.draw(this);
 				if(Input.GetKeyDown(interactionInput)){
 					interativectObject.interact(this);
 				}

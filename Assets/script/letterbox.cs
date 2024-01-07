@@ -6,9 +6,11 @@ namespace FiFolker
 {
     public class letterbox : MonoBehaviour, Interaction
     {
-        public void draw()
+
+        public void draw(CharacterBehavior player)
         {
-            Debug.Log("Press 'E' to interact with letterbox");
+            player.hud.DisplayInteraction("Press '"+player.interactionInput.ToString()+"' to interact with letterbox");
+            
         }
 
         public void interact(CharacterBehavior player)
@@ -17,22 +19,12 @@ namespace FiFolker
                 if(package.type == PackageType.Small){
                     player.inventory.RemoveItem(package);
                     player.inventory.AddMoney(15);
+                    player.hud.DisplayInteraction("+ 15€");
                     break;
                 }
             }
             
         }
 
-        // Start is called before the first frame update
-        void Start()
-        {
-        
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-        
-        }
     }
 }

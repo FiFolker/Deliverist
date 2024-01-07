@@ -9,10 +9,11 @@ namespace FiFolker{
         public int money = 0;
         public float maxWeight;
         private float currentWeight = 0f;
+        public CharacterBehavior player;
 
         private void Update() {
             if(Input.GetKeyDown(KeyCode.I)){
-                Debug.Log("You have " + content.Count + " items for a total of " + currentWeight + "/"+maxWeight+"kg");
+                player.hud.DisplayInfo("You have " + content.Count + " items for a total of " + currentWeight + "/"+maxWeight+"kg");
             }
         }
 
@@ -20,10 +21,10 @@ namespace FiFolker{
             if(currentWeight+package.weight <= maxWeight){
                 content.Add(package);
                 currentWeight += package.weight;
-                Debug.Log(package.name + " was added to your inventory. Current weight : " + currentWeight);
+                player.hud.DisplayInfo("+ " +package.name + " | weight : " + currentWeight + "kg");
                 return true;
             }else{
-                Debug.Log("Out of weight ...");
+                player.hud.DisplayInfo("Out of Weight ...");
                 return false;
             }
         }
@@ -31,13 +32,13 @@ namespace FiFolker{
         public void RemoveItem(PackageData package){
             content.Remove(package);
             currentWeight -= package.weight;
-            Debug.Log(package.name + " was removed of the inventory. - "+package.weight+"kg");
+            player.hud.DisplayInfo("- " + package.name + " | - "+package.weight+"kg");
         }
 
         public void AddMoney(int amount){
+            player.hud.DisplayInfo("+ "+amount+"€");
             money += amount;
-            Debug.Log("+ "+amount+"€");
-            Debug.Log("You have " + money + "€");
+            player.hud.updateMoney();
         }
 
     }
