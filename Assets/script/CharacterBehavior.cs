@@ -28,7 +28,7 @@ namespace FiFolker{
 			if(Input.GetKey(forwardInput)){
 				if(Input.GetKey(sprintInput)){
 					transform.Translate(0,0, runSpeed * Time.deltaTime);
-					if(playerView.GetComponent<Camera>().fieldOfView != 75) StartCoroutine(Lerp(playerView.GetComponent<Camera>().fieldOfView, 75, .8f));
+					if(playerView.GetComponent<Camera>().fieldOfView <= 70) StartCoroutine(Lerp(playerView.GetComponent<Camera>().fieldOfView, 75, .8f));
 				}else{
 					transform.Translate(0,0, walkSpeed * Time.deltaTime);
 				}
